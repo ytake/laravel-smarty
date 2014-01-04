@@ -1,6 +1,7 @@
 {
     "name": "comnect/smarty",
-    "description": "",
+    "description": "laravel4 for smarty template",
+    "license": "MIT",
     "authors": [
         {
             "name": "yuuki takezawa",
