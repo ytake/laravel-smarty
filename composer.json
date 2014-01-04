@@ -1,0 +1,21 @@
+{
+    "name": "comnect/smarty",
+    "description": "",
+    "authors": [
+        {
+            "name": "yuuki takezawa",
+            "email": "yuuki.takezawa@comnect.jp.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.1.*",
+        "smarty/smarty": "dev-trunk"
+    },
+    "autoload": {
+        "psr-0": {
+            "Comnect\\Smarty\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
