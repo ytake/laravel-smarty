@@ -40,7 +40,7 @@ app/config/packages配下に追加されます。
 view配下にsmartyファイルがあればそれをテンプレートと使用し、  
 なければ通常通りbladeテンプレートかphpファイルを使用します。  
 
-smartyテンプレート内にも*{{app_path()}}*等のヘルパーやblade構文がそのまま使用できます。  
+smartyテンプレート内にも*{{app_path()}}*等のヘルパーそのまま使用できます。  
 その場合、delimiterをbladeと同じものを指定しない様にしてください。  
 
 configファイルでこれらの指定が可能です。  
