@@ -1,6 +1,7 @@
 {
     "name": "comnect/smarty",
     "description": "laravel4 for smarty template",
+    "keywords": ["laravel", "smarty"],
     "license": "MIT",
     "authors": [
         {
@@ -12,6 +13,10 @@
         "php": ">=5.4.0",
         "illuminate/support": "4.1.*",
         "smarty/smarty": "dev-trunk"
+    },
+    "require-dev": {
+        "mockery/mockery": "0.8.0",
+        "phpunit/phpunit": "3.7.*"
     },
     "autoload": {
         "psr-0": {
