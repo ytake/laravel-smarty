@@ -1,4 +1,4 @@
-laravel4.1 for Smarty
+Smarty for laravel4
 ========
 laravel4.1でsmartyを使用できます。  
 通常のテンプレートへの出力の他、  
