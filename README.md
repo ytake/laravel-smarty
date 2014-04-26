@@ -1,18 +1,34 @@
-Smarty for laravel4
+smarty template engine for laravel4
 ========
-laravel4.1でsmartyを使用できます。  
-通常のテンプレートへの出力の他、  
-```php
-// laravel4 template render
-View::make('template', ['hello']);
-// like smarty
-View::assign('word', 'hello');  
-```
-とsmartyライクにも使用できます。  
-またcacheClear等が使用できます。  
 
-install 導入方法
-==================
+##Basic
+laravel4でsmartyを使用できます。  
+bladeの構文をそのまま使用することができ(デリミタは重複しないように)、  
+それに加え、smartyのmethodはすべて利用可能です。
+```php
+// laravel4 blade template render
+View::make('template', ['hello']);
+// use smarty method
+View::assign('word', 'hello');  
+View::clearAllAssign();  
+```
+##Artisan
+キャッシュクリア、コンパイルファイルの削除がコマンドラインから行えます。
+###cache clear
+```bash
+$ php artisan comnect:smarty-cacheclear
+```
+Options:  
+ --file (-f)           specify file  
+ --time (-t)           clear all of the files that are specified duration time  
+###remove compile class
+```bash
+$ php artisan comnect:smarty-clear-compiled
+```
+Options:  
+ --file (-f)           specify file  
+
+##install 導入方法
 composer.jsonのrequireに追記してください。
 ```json
 	"require": {
