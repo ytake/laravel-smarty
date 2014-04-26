@@ -1,6 +1,6 @@
 smarty template engine for laravel4
 ========
-
+[![Build Status](https://travis-ci.org/ytake/laravel-smarty.svg?branch=master)](https://travis-ci.org/ytake/laravel-smarty)
 ##Basic
 laravel4でsmartyを使用できます。  
 bladeの構文をそのまま使用することができ(デリミタは重複しないように)、  
