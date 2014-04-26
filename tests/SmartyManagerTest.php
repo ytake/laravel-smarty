@@ -74,7 +74,6 @@ class SmartyManagerTest extends PHPUnit_Framework_TestCase
     {
         $this->manager->clearCompiledTemplate();
         $this->assertSame(0, count($this->scan()));
-
     }
 
     public function scan()
@@ -83,7 +82,7 @@ class SmartyManagerTest extends PHPUnit_Framework_TestCase
         $dir = opendir('storage/smarty/compile');
         while($file = readdir($dir))
         {
-            if($file != '.' && $file != '..')
+            if($file != '.' && $file != '..' && $file != '.gitkeep')
             {
                 $files[] = $file;
             }
