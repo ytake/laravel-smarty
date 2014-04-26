@@ -48,9 +48,9 @@ class SmartyManagerTest extends PHPUnit_Framework_TestCase
     {
         $this->manager->assign('value', 'hello');
         $this->assertSame('hello', $this->manager->getTemplateVars('value'));
-        $this->assertSame('hellohello', $this->manager->fetch(realpath(null) . '/views/test.tpl'));
+        $this->assertSame('hellohello', $this->manager->fetch(realpath(null) . '/tests/views/test.tpl'));
         $this->manager->clearAllAssign();
-        $this->assertSame('hello', $this->manager->fetch(realpath(null) . '/views/test.tpl'));
+        $this->assertSame('hello', $this->manager->fetch(realpath(null) . '/tests/views/test.tpl'));
         $this->assertSame(null, $this->manager->getTemplateVars('value'));
     }
 
@@ -67,7 +67,7 @@ class SmartyManagerTest extends PHPUnit_Framework_TestCase
     public function testPlugins()
     {
         $this->manager->assign('value', 'hello');
-        $this->assertSame('test', $this->manager->fetch(realpath(null) . '/views/plugin_test.tpl'));
+        $this->assertSame('test', $this->manager->fetch(realpath(null) . '/tests/views/plugin_test.tpl'));
     }
 
     public function testClearFile()
@@ -79,7 +79,7 @@ class SmartyManagerTest extends PHPUnit_Framework_TestCase
     public function scan()
     {
         $files = [];
-        $dir = opendir(realpath(null) . '/storage/smarty/compile');
+        $dir = opendir(realpath(null) . '/tests/views/storage/smarty/compile');
         while($file = readdir($dir))
         {
             if($file != '.' && $file != '..' && $file != '.gitkeep')
