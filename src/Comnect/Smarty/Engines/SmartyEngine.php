@@ -1,27 +1,26 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: yuuki.takezawa
- * Date: 2014/01/03
- * Time: 2:05
- */
 namespace Comnect\Smarty\Engines;
 
+use Smarty;
 use Illuminate\View;
 use Illuminate\View\Engines;
 use Illuminate\View\Engines\EngineInterface;
+
 /**
- * SmartyEngine
- * @author yuuki.takezawa <yuuki.takezawa@comnect.jp.net>
- * @package Smarty
+ * Class SmartyEngine
+ * @package Comnect\Smarty\Engines
+ * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
  * @license MIT
  */
-class SmartyEngine implements EngineInterface{
+class SmartyEngine implements EngineInterface
+{
+    /** @var Smarty */
+    protected $smarty;
 
 	/**
-	 * @param $smarty
+	 * @param Smarty $smarty
 	 */
-	public function __construct(\Smarty $smarty)
+	public function __construct(Smarty $smarty)
 	{
 		$this->smarty = $smarty;
 	}
@@ -48,16 +47,13 @@ class SmartyEngine implements EngineInterface{
 	{
 		ob_start();
 		try {
-
 			//
 			foreach ($data as $var => $val)
 			{
 				$this->smarty->assign($var, $val);
 			}
-
 			// render
 			$this->smarty->display($path);
-
 		} catch (\Exception $e) {
 			$this->handleViewException($e);
 		}
@@ -75,6 +71,4 @@ class SmartyEngine implements EngineInterface{
 	{
 		ob_get_clean(); throw $e;
 	}
-
-
 }

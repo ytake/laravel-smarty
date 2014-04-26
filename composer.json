@@ -1,7 +1,7 @@
 {
     "name": "comnect/smarty",
-    "description": "laravel4 for smarty template",
-    "keywords": ["laravel", "smarty"],
+    "description": "smarty for laravel4",
+    "keywords": ["laravel", "smarty", "template"],
     "license": "MIT",
     "authors": [
         {
@@ -12,16 +12,20 @@
     "require": {
         "php": ">=5.4.0",
         "illuminate/support": "4.1.*",
-        "smarty/smarty": "dev-trunk"
+	    "illuminate/view": "4.1.*",
+	    "illuminate/config": "4.1.*",
+	    "smarty/smarty": "3.*"
     },
     "require-dev": {
         "mockery/mockery": "0.8.0",
-        "phpunit/phpunit": "3.7.*"
+        "phpunit/phpunit": "3.7.*",
+	    "symfony/framework-bundle": "2.*",
+	    "symfony/console": "2.*"
     },
     "autoload": {
         "psr-0": {
             "Comnect\\Smarty\\": "src/"
         }
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }
