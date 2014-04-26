@@ -3,6 +3,7 @@ namespace Comnect\Smarty;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View;
+
 /**
  * SmartyServiceProvider
  * @author yuuki.takezawa <yuuki.takezawa@comnect.jp.net>
@@ -17,17 +18,13 @@ class SmartyServiceProvider extends ServiceProvider {
 	 */
 	protected $defer = false;
 
-	/**
+    /**
 	 * Bootstrap the application events.
 	 * @return void
 	 */
 	public function boot()
 	{
 		$this->package('comnect/smarty');
-		// smarty register
-		$this->registerSmartyEngine();
-		// register command
-		$this->registerCommands();
 	}
 
 	/**
@@ -37,7 +34,9 @@ class SmartyServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app['config']->package('comnect/smarty', __DIR__.'/../config');
+        // smarty register
+        $this->registerSmartyEngine();
+        $this->registerCommands();
 	}
 
 	/**
@@ -47,40 +46,42 @@ class SmartyServiceProvider extends ServiceProvider {
 	public function registerSmartyEngine()
 	{
 		$app = $this->app;
+
+        $app['config']->package('comnect/smarty', __DIR__.'/../config');
+        $app->bind('Illuminate\View\Engines\EngineInterface', 'Comnect\Smarty\Engines\SmartyEngine');
+
 		// share
-		$app['view'] = $app->share(
-			function ($app) {
-				return new SmartyManager($app['view.engine.resolver'], $app['view.finder'], $app['events'], new \Smarty);
-			}
-		);
+		$app['view'] = $app->share(function ($app) {
+			    return new SmartyManager($app['view.engine.resolver'], $app['view.finder'], $app['events'], new \Smarty);
+		    });
 
 		// add smarty extension
 		$app['view']->addExtension($app['config']->get('smarty::extension', 'tpl'), 'smarty', function() use ($app){
-
-			return new Engines\SmartyEngine($app['view']->getSmarty());
-		});
+                return $app->make('Illuminate\View\Engines\EngineInterface', ['smarty' => $app['view']->getSmarty()]);
+		    });
 	}
 
-	/**
-	 * Get the services provided by the provider.
-	 *
-	 * @return array
-	 */
-	public function provides()
-	{
-		return array();
-	}
+    /**
+     * register artisan command
+     */
+    public function registerCommands()
+    {
+        // Info command
+        $this->app['command.smarty.info'] = $this->app->share(function ($app) {
+                return new Console\InfoCommand;
+            });
+        $this->commands('command.smarty.info');
 
-	public function registerCommands()
-	{
-		// Info command
-		$this->app['command.smarty'] = $this->app->share(
-			function ($app) {
-				return new Console\SmartyInfoCommand;
-			}
-		);
-		$this->commands(
-			'command.smarty'
-		);
-	}
+        // cache clear
+        $this->app['command.smarty.cache.clear'] = $this->app->share(function ($app) {
+                return new Console\CacheClearCommand($this->app['view']->getSmarty());
+            });
+        $this->commands('command.smarty.cache.clear');
+
+        // clear compiled
+        $this->app['command.smarty.clear.compiled'] = $this->app->share(function ($app) {
+                return new Console\CompiledClearCommand($this->app['view']->getSmarty());
+            });
+        $this->commands('command.smarty.clear.compiled');
+    }
 }

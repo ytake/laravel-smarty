@@ -1,16 +1,18 @@
 <?php
 
 namespace Comnect\Smarty\Console;
+
 use Illuminate\Console\Command;
 use Comnect\Smarty\SmartyManager;
 
-class SmartyInfoCommand extends Command
+class InfoCommand extends Command
 {
+
 	/**
 	 * The console command name.
 	 * @var string
 	 */
-	protected $name = 'smarty';
+	protected $name = 'comnect:smarty-info';
 
 	/**
 	 * The console command description.
