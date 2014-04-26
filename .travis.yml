@@ -9,7 +9,6 @@ php:
 before_script:
   - curl -s http://getcomposer.org/installer | php
   - php composer.phar install --dev
-before_script:
   - chmod -R 777 tests/storage
 script: phpunit
 
