@@ -79,7 +79,7 @@ class SmartyManagerTest extends PHPUnit_Framework_TestCase
     public function scan()
     {
         $files = [];
-        $dir = opendir(realpath(null) . '/tests/views/storage/smarty/compile');
+        $dir = opendir(realpath(null) . '/tests/storage/smarty/compile');
         while($file = readdir($dir))
         {
             if($file != '.' && $file != '..' && $file != '.gitkeep')
