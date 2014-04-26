@@ -4,7 +4,6 @@ php:
   - 5.4
   - 5.5
   - 5.6
-  - hhvm
 
 before_script:
   - curl -s http://getcomposer.org/installer | php
@@ -15,9 +14,3 @@ script: phpunit
 notifications:
   emails:
     - yuuki.takezawa@comnect.jp.net
-
-matrix:
-  allow_failures:
-    - php: 5.6
-    - php: hhvm
-  fast_finish: true
