@@ -64,3 +64,8 @@ smartyテンプレート内にも*{{app_path()}}*等のヘルパーそのまま�
 その場合、delimiterをbladeと同じものを指定しない様にしてください。  
 
 configファイルでこれらの指定が可能です。  
+
+sample
+======================
+[layout.sample](https://gist.github.com/ytake/11345539)  
+[layout.extends.sample](https://gist.github.com/ytake/11345614)
