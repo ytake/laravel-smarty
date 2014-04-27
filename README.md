@@ -3,9 +3,11 @@ smarty template engine for laravel4
 [![Build Status](https://travis-ci.org/ytake/laravel-smarty.svg?branch=master)](https://travis-ci.org/ytake/laravel-smarty)
 [![Latest Stable Version](https://poser.pugx.org/comnect/smarty/v/stable.png)](https://packagist.org/packages/comnect/smarty) [![Total Downloads](https://poser.pugx.org/comnect/smarty/downloads.png)](https://packagist.org/packages/comnect/smarty) [![Latest Unstable Version](https://poser.pugx.org/comnect/smarty/v/unstable.png)](https://packagist.org/packages/comnect/smarty) [![License](https://poser.pugx.org/comnect/smarty/license.png)](https://packagist.org/packages/comnect/smarty)
 ##Basic
+smarty template for laravel4  
+
 laravel4でsmartyを使用できます。  
 bladeの構文をそのまま使用することができ(デリミタは重複しないように)、  
-それに加え、smartyのmethodはすべて利用可能です。
+それに加え、View Facadeを通じてsmartyのmethodはすべて利用可能です。
 ```php
 // laravel4 blade template render
 View::make('template', ['hello']);
@@ -15,6 +17,7 @@ View::clearAllAssign();
 ```
 ##Artisan
 キャッシュクリア、コンパイルファイルの削除がコマンドラインから行えます。
+smarty's cacheclear, remove compile class from Artisan(cli)
 ###cache clear
 ```bash
 $ php artisan comnect:smarty-cacheclear
@@ -32,9 +35,9 @@ Options:
 ##install 導入方法
 composer.jsonのrequireに追記してください。
 ```json
-	"require": {
-		"comnect/smarty": "dev-master"
-	},
+    "require": {
+        "comnect/smarty": "0.*"
+    },
 ```
 
 
