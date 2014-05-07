@@ -25,6 +25,8 @@ class SmartyServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->package('comnect/smarty');
+        $this->registerSmartyEngine();
+        $this->registerCommands();
 	}
 
 	/**
@@ -34,9 +36,8 @@ class SmartyServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-        // smarty register
-        $this->registerSmartyEngine();
-        $this->registerCommands();
+        // smarty configure register
+        $this->app['config']->package('comnect/smarty', __DIR__.'/../config');
 	}
 
 	/**
@@ -47,9 +48,7 @@ class SmartyServiceProvider extends ServiceProvider {
 	{
 		$app = $this->app;
 
-        $app['config']->package('comnect/smarty', __DIR__.'/../config');
         $app->bind('Illuminate\View\Engines\EngineInterface', 'Comnect\Smarty\Engines\SmartyEngine');
-
 		// share
 		$app['view'] = $app->share(function ($app) {
 			    return new SmartyManager($app['view.engine.resolver'], $app['view.finder'], $app['events'], new \Smarty);
