@@ -7,7 +7,8 @@ smarty template for laravel4
 
 laravel4でsmartyを使用できます。  
 bladeの構文をそのまま使用することができ(デリミタは重複しないように)、  
-それに加え、View Facadeを通じてsmartyのmethodはすべて利用可能です。
+それに加え、View Facadeを通じてsmartyのmethodはすべて利用可能です。  
+easily use all the methods of smarty  
 ```php
 // laravel4 blade template render
 View::make('template', ['hello']);
@@ -16,7 +17,7 @@ View::assign('word', 'hello');
 View::clearAllAssign();  
 ```
 ##Artisan
-キャッシュクリア、コンパイルファイルの削除がコマンドラインから行えます。
+キャッシュクリア、コンパイルファイルの削除がコマンドラインから行えます。  
 smarty's cacheclear, remove compile class from Artisan(cli)
 ###cache clear
 ```bash
@@ -33,7 +34,7 @@ Options:
  --file (-f)           specify file  
 
 ##install 導入方法
-composer.jsonのrequireに追記してください。
+composer.jsonのrequireに追記してください。  
 ```json
     "require": {
         "comnect/smarty": "0.*"
