@@ -59,7 +59,7 @@ publish configure
 $ php artisan config:publish comnect/smarty
 ```
 app/config/packages配下に追加されます。  
-publish to app/congig/packages
+publish to app/config/packages
 
 
 views配下にsmartyファイルがあればそれをテンプレートと使用し、  
