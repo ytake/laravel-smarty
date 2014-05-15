@@ -6,15 +6,16 @@ smarty template engine for laravel4
 smarty template for laravel4  
 
 laravel4でsmartyを使用できます。  
-bladeの構文をそのまま使用することができ(デリミタは重複しないように)、  
+bladeの構文をそのまま使用することができ、  
 それに加え、View Facadeを通じてsmartyのmethodはすべて利用可能です。  
 easily use all the methods of smarty  
+###required array short syntax!
 ```php
 // laravel4 blade template render
 View::make('template', ['hello']);
 // use smarty method
 View::assign('word', 'hello');  
-View::clearAllAssign();  
+View::clearAllAssign(); // smarty method
 ```
 ##Artisan
 キャッシュクリア、コンパイルファイルの削除がコマンドラインから行えます。  
@@ -34,7 +35,7 @@ Options:
  --file (-f)           specify file  
 
 ##install 導入方法
-composer.jsonのrequireに追記してください。  
+
 ```json
     "require": {
         "comnect/smarty": "0.*"
@@ -47,18 +48,21 @@ usage 使い方
 
 install後、
 app/config配下のapp.phpのproviders配列に以下のnamespaceを追加してください。  
+add providers
 ```php
 'Comnect\Smarty\SmartyServiceProvider'
 ```
 
-configファイルをpublishします。
+configファイルをpublishします。  
+publish configure
 ```bash
 $ php artisan config:publish comnect/smarty
 ```
 app/config/packages配下に追加されます。  
+publish to app/congig/packages
 
 
-view配下にsmartyファイルがあればそれをテンプレートと使用し、  
+views配下にsmartyファイルがあればそれをテンプレートと使用し、  
 なければ通常通りbladeテンプレートかphpファイルを使用します。  
 
 smartyテンプレート内にも*{{app_path()}}*等のヘルパーそのまま使用できます。  
