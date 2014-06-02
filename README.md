@@ -2,6 +2,19 @@ smarty template engine for laravel4
 ========
 [![Build Status](https://travis-ci.org/ytake/laravel-smarty.svg?branch=master)](https://travis-ci.org/ytake/laravel-smarty)
 [![Latest Stable Version](https://poser.pugx.org/comnect/smarty/v/stable.png)](https://packagist.org/packages/comnect/smarty) [![Total Downloads](https://poser.pugx.org/comnect/smarty/downloads.png)](https://packagist.org/packages/comnect/smarty) [![Latest Unstable Version](https://poser.pugx.org/comnect/smarty/v/unstable.png)](https://packagist.org/packages/comnect/smarty) [![License](https://poser.pugx.org/comnect/smarty/license.png)](https://packagist.org/packages/comnect/smarty)
+##install 導入方法
+###for Laravel4.2
+```json
+    "require": {
+        "comnect/smarty": "2.*"
+    },
+```
+###for Laravel4.1
+```json
+    "require": {
+        "comnect/smarty": "1.*"
+    },
+```
 ##Basic
 smarty template for laravel4  
 
@@ -33,15 +46,6 @@ $ php artisan comnect:smarty-clear-compiled
 ```
 Options:  
  --file (-f)           specify file  
-
-##install 導入方法
-
-```json
-    "require": {
-        "comnect/smarty": "0.*"
-    },
-```
-
 
 usage 使い方
 ==================
