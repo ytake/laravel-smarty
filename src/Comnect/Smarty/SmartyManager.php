@@ -4,7 +4,7 @@ namespace Comnect\Smarty;
 use Illuminate\View\Engines\EngineResolver;
 use Illuminate\View\ViewFinderInterface;
 use Illuminate\Events\Dispatcher;
-use Illuminate\View\Environment;
+use Illuminate\View\Factory;
 use Illuminate\Support\Facades\Config;
 
 /**
@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Config;
  * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
  * @license MIT
  */
-class SmartyManager extends Environment
+class SmartyManager extends Factory
 {
 
-	const VERSION = '0.3';
+	const VERSION = '2.0.0';
 
     /** @var \Smarty  */
 	protected $smarty;

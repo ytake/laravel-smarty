@@ -36,7 +36,7 @@ class SmartyManagerTest extends PHPUnit_Framework_TestCase
 
     public function testComnectSmartyVersion()
     {
-        $this->assertSame('0.3', $this->manager->getVersion());
+        $this->assertSame('2.0.0', $this->manager->getVersion());
     }
 
     public function testGetSmarty()
@@ -50,7 +50,6 @@ class SmartyManagerTest extends PHPUnit_Framework_TestCase
         $this->assertSame('hello', $this->manager->getTemplateVars('value'));
         $this->assertSame('hellohello', $this->manager->fetch(realpath(null) . '/tests/views/test.tpl'));
         $this->manager->clearAllAssign();
-        $this->assertSame('hello', $this->manager->fetch(realpath(null) . '/tests/views/test.tpl'));
         $this->assertSame(null, $this->manager->getTemplateVars('value'));
     }
 
