@@ -16,11 +16,11 @@ return [
     'left_delimiter' => '{',
     'right_delimiter' => '}',
     // path info
-    'template_path' => realpath(null) . '/tests/views',
-    'cache_path' => realpath(null) . '/tests/storage/smarty/cache',
-    'compile_path' => realpath(null) . '/tests/storage/smarty/compile',
+    'template_path' => realpath(null) . '/views',
+    'cache_path' => realpath(null) . '/storage/smarty/cache',
+    'compile_path' => realpath(null) . '/storage/smarty/compile',
     'plugins_paths' => [
-        realpath(null) . '/tests/views/plugins',
+        realpath(null) . '/views/plugins',
     ]
 
 ];
