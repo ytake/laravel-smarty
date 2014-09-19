@@ -1,5 +1,8 @@
 smarty template engine for laravel4
 ========
+#Deprecated
+[Laravel.Smarty](https://github.com/ytake/Laravel.Smarty)  
+
 [![Build Status](https://travis-ci.org/ytake/laravel-smarty.svg?branch=master)](https://travis-ci.org/ytake/laravel-smarty)
 [![Latest Stable Version](https://poser.pugx.org/comnect/smarty/v/stable.png)](https://packagist.org/packages/comnect/smarty) [![Total Downloads](https://poser.pugx.org/comnect/smarty/downloads.png)](https://packagist.org/packages/comnect/smarty) [![HHVM Status](http://hhvm.h4cc.de/badge/comnect/smarty.png)](http://hhvm.h4cc.de/package/comnect/smarty) [![License](https://poser.pugx.org/comnect/smarty/license.png)](https://packagist.org/packages/comnect/smarty)
 ##install 導入方法
