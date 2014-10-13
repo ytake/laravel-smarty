@@ -1,11 +1,12 @@
 <?php
 namespace Comnect\Smarty;
 
-use Illuminate\View\Engines\EngineResolver;
-use Illuminate\View\ViewFinderInterface;
-use Illuminate\Events\Dispatcher;
+use ReflectionClass;
 use Illuminate\View\Environment;
+use Illuminate\Events\Dispatcher;
 use Illuminate\Support\Facades\Config;
+use Illuminate\View\ViewFinderInterface;
+use Illuminate\View\Engines\EngineResolver;
 
 /**
  * Class SmartyManager
@@ -86,22 +87,15 @@ class SmartyManager extends Environment
     /**
      * @param $name
      * @param $arguments
+     * @return mixed
+     * @throws \Exception
      */
     public function __call($name, $arguments)
     {
-        $pass = [];
-        $reflectionMethod = new \ReflectionMethod($this->smarty, $name);
-        $i = 0;
-        foreach($reflectionMethod->getParameters() as $param)
-        {
-            if(isset($arguments[$i]))
-            {
-                $pass[] = $arguments[$i];
-            }else{
-                $pass[] = $param->getDefaultValue();
-            }
-            $i++;
+        $reflectionClass = new ReflectionClass($this->smarty);
+        if(!$reflectionClass->hasMethod($name)) {
+            throw new \Exception("{$name} : Method Not Found");
         }
-        return $reflectionMethod->invokeArgs($this->smarty, $pass);
+        return call_user_func_array([$this->smarty, $name], $arguments);
     }
 }
